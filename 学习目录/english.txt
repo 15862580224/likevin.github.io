@@ -1,0 +1,16 @@
+﻿regular,规律的,regular expression
+assign 分配,指派
+forward 前进
+Navigator 领航员,浏览器
+confirm 证实,确认
+interval 间隔
+expires 到期,结束
+toggle 切换键
+Fading 逐渐消失
+conflict 冲突
+scale 程度,等级规模
+initial 开始的最初的
+code 编码
+caption 标题
+exports 输出
+instance 实例

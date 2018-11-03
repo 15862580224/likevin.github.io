@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Css3</title>
+</head>
+<body>
+	<style type="text/css">
+		/*div {
+			width: 100px;
+			height: 75px;
+			background-color: red;
+			border:1px black solid;
+
+		}*/
+		/*div#div2{
+			transform:rotate(30deg);
+			-ms-transform:rotate(30deg);
+			-webkit-transform:rotate(30deg);
+		}
+*/		
+div
+{
+	border:15px solid transparent;
+	width:250px;
+	padding:10px 20px;
+}
+
+		#round
+		{
+			-webkit-border-image:url(images/border.png) 30 30 round; /* Safari 5 and older */
+			-o-border-image:url(images/border.png) 30 30 round; /* Opera */
+			border-image:url(images/border.png) 30 30 round;
+		}
+		#stretch
+		{
+			-webkit-border-image:url(border.png) 30 30 stretch; /* Safari 5 and older */
+			-o-border-image:url(border.png) 30 30 stretch; /* Opera */
+			border-image:url(images/border.png) 30 30 stretch;
+		}
+	</style>
+<!-- 	<div>这是第一个div</div>
+	<div id="div2">这是第二个div</div>
+	<div style="border-radius: 50%;">使用border-raius创建圆角</div>
+	<div style="box-shadow: 10px 10px 5px #888888;">使用box-shadow添加阴影</div> -->
+	<div>使用border-image创建边界图片</div>
+	<br>
+	<br>
+	<div id="round">这里，图像平铺（重复）来填充该区域。</div>
+	<br>
+	<br>
+	<div id="stretch">这里，图像被拉伸以填充该区域。</div>
+	<img src="images/border.png" />
+</body>
+</html>

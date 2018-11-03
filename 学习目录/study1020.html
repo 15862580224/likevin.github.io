@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>date对象的一些操作</title>
+	<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+<body>
+	<p id="demo"></p>
+	<div id="div1" style="width: 300px;height: 300px;padding:50px;margin:15px;background-color: green;">我是一个div1</div>
+	<div id="div2" style="width: 30px;height: 30px;padding:50px;margin:15px;background-color: green;">我是一个div2</div>
+	<div id="div3" style="width: 30px;height: 30px;padding:50px;margin:15px;background-color: green;">我是一个div2</div>
+	<script type="text/javascript">
+		//创建一个date对象,
+	var d=new Date();
+	var x=document.getElementById("demo");
+	x.innerHTML=d.getDay();
+	var week=["","周一","周二","周三","周四","周五","周六","星期天"];
+	document.write(d.getDay())
+	document.write(week[d.getDay()]);
+	//jquery操作
+	//入口函数
+	//$(document).ready(function(){
+		//alert("我是入口函数");
+	//})
+	//
+	// window.onload = function () {
+ //   	alert("我是入口 函数")
+	// }
+	//jquery选择器,$(p),$("#class"),$(".id")
+
+	//hide方法,对应show方法,可一直使用toggle方法切换隐藏,显示
+	$(document).ready(function(){
+		$("#div1").click(function(){
+			// $("#div1").hide(1000,function(){
+			// 	alert("div1已经隐藏");
+			$("#div1").toggle()
+			})
+		})
+	//动画演示
+	$(document).ready(function(){
+		$("#div2").click(function(){
+			var bianliang1=$("#div2")
+			bianliang1.animate({height:"300px",opacity:"0.4"},"slow");
+			bianliang1.animate({width:"300px",opacity:"0.8"},"slow");
+			bianliang1.animate({height:"30px",opacity:"0.4"},"slow");
+			bianliang1.animate({width:"30px",opacity:"0.4"},"slow");
+		})
+	})
+
+
+	</script>
+</body>
+</html>

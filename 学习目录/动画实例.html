@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>动画实例</title>
+</head>
+<body>
+	<style type="text/css">
+		#div1{
+			height: 400px;
+			width: 400px;
+			background-color: gray;
+			position:relative;
+			top: 200px;
+			left: 200px;
+		}
+		#div2{
+			height: 40px;
+			width: 40px;
+			background-color: red;
+			position: absolute;
+		}
+	</style>
+
+
+	<div id="div1">
+		<div id="div2"></div>
+	</div>
+
+	
+	<script type="text/javascript">
+		document.getElementById('div2').onclick=function(){
+			//跳出xunhuan只需要设置clearInterval(xunhuan)即可
+			xunhuan=setInterval(fangfa,10);
+			var shijian=0
+
+			function fangfa(){
+				shijian++;
+				document.getElementById('div2').style.top=shijian+'px';
+				document.getElementById('div2').style.left=shijian+'px';
+				if (shijian==360) {
+					shijian=0
+				}
+			}	
+		};
+		
+	</script>
+</body>
+</html>

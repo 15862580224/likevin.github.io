@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<style type="text/css">
+		#myImg{
+			border-radius: 5px;
+			cursor: pointer;
+			transition: 4;/*过度*/
+		}
+		#myImg:hover{
+			opacity: 0.7;
+		}
+		/*弹窗背景*/
+		.modal{
+			display: none;
+			position: fixed;
+			z-index: 1;
+			padding-top: 100px;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			overflow: auto;
+			background-color: rgb(0,0,0);
+			background-color: rgba(0,0,0,0.9);
+		}
+		.modal-content{
+			margin: auto;
+			 display: block;
+			width: 80%;
+			
+		}
+		.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+ 
+.close:hover,
+.close:focus {
+    color: #bbb;
+    
+    cursor: pointer;
+}
+	</style>
+	<!-- 触发弹窗 - 图片改为你的图片地址 -->
+	<img id="myImg" src="https://c.runoob.com/wp-content/uploads/2017/01/btotbhpudiagtmvlkyrs.jpg" alt="文本描述信息" width="300" height="200">
+	 
+	<!-- 弹窗 -->
+	<div id="myModal" class="modal">
+	 
+	  <!-- 关闭按钮 -->
+	  <span class="close" onclick="document.getElementById('myModal').style.display='none'">&times;</span>
+	 
+	  <!-- 弹窗内容 -->
+	  <img class="modal-content" id="img01">
+	 
+	  <!-- 文本描述 -->
+	  <div id="caption"></div>
+	</div>
+	<script type="text/javascript">
+		var anniu=document.getElementById("myImg")
+		var beijing=document.getElementById("myModal");
+		var tupian=document.getElementById("img01");
+		var wenben=document.getElementById("caption");
+		anniu.onclick=function tanchuang(){
+			myModal.style.display="block";
+			tupian.src=this.src;
+			wenben.innHTML=this.alt;
+		}
+	</script>
+</body>
+</html>

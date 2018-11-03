@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>课时3,浏览器对象,BOM</title>
+</head>
+<body>
+	<p id="kuanggao">我是宽高</p>
+	<!-- location.assign方法,加载新的文档 -->
+	<button id="jiazaiwendang" onclick="window.location.assign('http://www.w3cschool.cc')">assign文档</button>
+	<button id="yaoqiushuru" onclick="yaoqiushuru()">要求输入按钮</button>
+	<script type="text/javascript">
+		//获取浏览器的高度和宽度,不同浏览器的属性定义是不同的要
+		var kuang=window.innerWidth||document.documentElement.clientWidth||document.body.clientWidth;
+		var gao = window.innerHeight||document.documentElement.clientHeight||document.body.clientHeight;
+		document.getElementById("kuanggao").innerHTML="浏览器的宽度为"+kuang+"高度为:"+gao;
+
+		//浏览器的可用高度和宽度
+		document.write("可用宽度:"+screen.availWidth+" "+screen.availHeight);
+
+		//浏览器location对象,获取当前页面的URL地址并重定向,location,可以省略window.
+		document.write(location.href);
+		document.write(location.pathname);//l?cx
+
+		//window history对象包含浏览器历史记录,
+		function houtui(){
+			window.history.back();
+		}
+		function qianjin(){
+			window.hstory.forward();
+		}
+		//windwo Navigator对象,访问浏览器信息,**这个方法不应用于检测浏览器版本,应为不准确,可以被用户更改
+		// 由于 navigator 可误导浏览器检测，使用对象检测可用来嗅探不同的浏览器。由于不同的浏览器支持不同的对象您可以使用对象来检测浏览器。例如，由于只有 Opera 支持属性 "window.opera"，您可以据此识别出 Opera。例子：if (window.opera) {...some action...}
+		txt="<p>浏览器代号"+navigator.appCodeName+"</p>";
+		txt+="<p>浏览器名称"+navigator.appName+"</p>";
+		txt+="<p>浏览器版本"+navigator.appVersion+"</p>";
+		txt+="<p>启用Cookies"+navigator.cookieEnabled+"</p>";
+		txt+="<p>硬件平台"+navigator.platform+"</p>";
+		txt+="<p>用户代理"+navigator.userAgent+"</p>";
+		txt+="<p>用户代理语言"+navigator.systemLanguage+"</p>";
+		document.write(txt);
+
+		//javascrip确认框方法,confirm()方法返回true和false,产生确认框的是这个confirm()方法
+		function tanchuang(){
+			var x=window.confirm('选一个按一下');
+			if (x==ture) {
+
+			}
+		}
+		//window.prompt()方法,\
+		function yaoqiushuru(){
+			var yaoqiushuru=window.prompt("请输入你的名\n字","李凯文");
+			if(yaoqiushuru!=null&&yaoqiushuru!="")
+				alert(yaoqiushuru);
+			}
+		//window的时间对象,还有一个setTimeout函数
+		window.setInterval(function(){
+			alert('window间隔方法');
+			clearInterval();//清楚及时操作,这里点的方法不能用l?cx
+		},2000);
+
+		//cookie的用法
+		//定义一个创建cookie的方法;
+		function chuangjian(){
+			var a = new Date();
+			a.setTime(d.getTime()+(exdays*24*60*60*1000));
+			var expires = "expires="+d.toGMTString();
+			document.cookie = cname + "=" +cvalue+";"+expries;
+		}
+		
+	</script>
+</body>
+</html>

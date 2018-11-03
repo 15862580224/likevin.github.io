@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>计算器</title>
+</head>
+<body>
+	<h1>计算器</h1>
+	<style type="text/css">
+		.btn{
+			outline: none;
+			cursor: pointer;
+			font-size: 20px;
+			height: 45px;
+			width: 45px;
+
+		}
+		.btn:first-child {
+			/*选择在父元素中是第一个子元素的叫btn的class*/
+		}
+		form {
+	background-color: #495678;
+	box-shadow: 4px 4px #3d4a65;
+	margin: 40px auto;
+	padding: 40px 0 30px 40px;	
+	width: 280px;
+}
+
+
+#display {
+	outline: none;
+	background-color: #98d1dc;
+	/*设置阴影*/
+	box-shadow: inset 6px 6px 0px #3facc0;
+	color: #dededc;
+	font-size: 20px;
+	height: 47px;
+	text-align: right;
+	width: 165px;
+	padding-right: 10px;
+	margin-left: 10px;
+}
+	</style>
+	<form>
+		<input type="button" id="clear" class="btn other" value="C">
+		<input type="text" id="display" name="">
+		<br>
+		<input type="button" class="btn number" value="7" name="">
+		<input type="button" class="btn number" value="8" name="">
+		<input type="button" class="btn number" value="9" name="">
+		<input type="button" class="btn number" value="+" name="">
+		<br>
+		<input type="button" class="btn number" value="4" name="">
+		<input type="button" class="btn number" value="5" name="">
+		<input type="button" class="btn number" value="6" name="">
+		<input type="button" class="btn number" value="*" name="">
+		<br>
+		<input type="button" class="btn number" value="1" name="">
+		<input type="button" class="btn number" value="2" name="">
+		<input type="button" class="btn number" value="3" name="">
+		<input type="button" class="btn number" value="-" name="">
+		<br>
+		<input type="button" class="btn number" value="0" name="">
+		<input type="button" class="btn number" value="." name="">
+		<input type="button" class="btn number" value="/" name="">
+		<input type="button" class="btn number" value="=" name="">
+	</form>
+	<script type="text/javascript">
+		/* limpa o display */ 
+document.getElementById("clear").addEventListener("click", function() {
+	document.getElementById("display").value = "";
+});
+/* recebe os valores */
+function get(value) {
+	document.getElementById("display").value += value; 
+} 
+
+/* calcula */
+function calculates() {
+	var result = 0;
+	result = document.getElementById("display").value;
+	document.getElementById("display").value = "";
+	document.getElementById("display").value = eval(result);
+};
+//eval()函数用来计算公式 直接写人1+1就可以返回2
+	</script>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<div id="div1">我是div元素1号</div>
+	<div id="div2">我是div元素2号<button onclick="myfunction1()">我是div2按钮</button></div>
+	<button onclick="shijian()">我是时间判断按钮</button>
+	<button onclick="querenkuang()">我是确认框</button>
+	<button onclick="tishikuang()">我是提示框</button>
+	<input type="button" name="" value="参数传递按钮.参数" onclick="chuandicanshu(value)">
+	<p onclick="xunhuan()"  id="p1">在这里循环输出标题</p>
+	<p onclick="jixu()" id="p2">在这里演示continue输出</p>
+	<button onclick="timedCount()">计时函数</button>
+	<input type="button" value="开始计数!" onClick="doTimer()">
+	<input type="button" name="" value="关闭计数!" onclick="tingzhijishu()">
+	<input type="text" id="txt">
+	<!-- usemap的用法 -->
+	<img src="images/planets.gif" usemap="map1">
+	<map name="map1">
+		<!-- 注意alert不能用双引号 -->
+		<area shape="rect" coords="0,0,82,126" href="images/sun.gif" onmouseover="alert('这是太阳')">
+		<area shape="circle" coords="90,58,3" href="images/merglobe.gif">
+		<area shape="circle" coords="124,58,8" href="images/venglobe.gif">
+	</map>
+	<button>显示图像的area数目</button>
+	<!-- 时钟 -->
+	<div id="shizhong" onclick="shizhong()">我是时钟显示区域</div>
+	<script type="text/javascript">
+		//输出文本
+		document.write(Date());
+		//改变元素内容
+		document.getElementById("div1").innerHTML="我是改变的div1元素";
+		//if语句判断时间
+		function shijian(){
+			var shijian=new Date().getHours();//new Date()要注意
+			if(shijian<12){
+				alert("现在是上午");
+			}else{
+				alert("现在是\n下午");// \n换行符
+			}
+		}
+		function querenkuang(){
+			//confirm()是弹出确认框的方法
+			var queren= confirm();
+			if(queren==true){
+				alert("你点击了确认");
+			}
+		}
+		function tishikuang(){
+			//prompt是弹出提示框的方法
+			if(prompt("","李凯文大帅比")!=""){
+			//弹出提示框
+			alert()
+			}
+		}
+
+		//拥有参数的方法
+		function chuandicanshu(canshu){
+			alert(canshu);
+		}
+		
+		//返回值得函数
+		function fanhui(){
+			return("我是fanhui()返回的值");
+
+		}
+
+		document.write(fanhui());
+
+		//循环输出
+		function xunhuan(){
+			var x="";
+			for(i=1;i<6;i++){
+				x=x+"<h"+i+">标题"+i+"<h"+i+">";
+				document.getElementById("p1").innerHTML=x;
+			}
+		}
+
+		//continue函数,直接进入下一步循环
+		function jixu(){
+			var wenben=''
+			for(i=0;i<5;i++){
+				if(i==3){
+					continue;
+				}
+				wenben=wenben+"循环数字"+i+"<br>";
+			}
+			document.getElementById("p2").innerHTML=wenben;		
+		}
+		//try catch 的用法
+		// try{
+
+		// }catch(){}
+
+		//计时函数
+		var jishu_on=0;
+		var c=0
+		var t
+		function timedCount(){
+			document.getElementById('txt').value=c;
+			c=c+1
+			t=setTimeout(function(){timedCount()},1000);
+		}
+
+		function doTimer(){
+			if(!jishu_on){
+				jishu=1;
+				timedCount();
+			}
+		}
+		//停止计数
+		function tingzhijishu(){
+			clearTimeout(t);
+			jishu_on=0
+		}
+		//关于时间的函数
+		function shizhong(){
+			var today =new Date();
+			var h=today.getHours();
+			var m=today.getMinutes();
+			var s=today.getSeconds();
+			document.getElementById("shizhong").innerHTML=h+":"+m+":"+s
+		}
+	</script>
+	<!-- //一个外部javaScript实例 -->
+	<script src="js.js"></script>
+</body>
+</html>

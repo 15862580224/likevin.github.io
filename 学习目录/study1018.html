@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<button id="anniu1">按钮1</button>
+	<button id="anniu2">按钮2</button>
+	<button onclick="alert('我是傻逼')">按钮3</button>
+	<p id="p1">我是p1</p>
+	<p id="p2">我是p2</p>
+	参考手册,DOM事件,鼠标事件,键盘事件 框架/对象（Frame/Object）事件 表单事件 剪贴板事件 打印事件 拖动事件 多媒体（Media）事件 动画事件动画事件 过渡事件 其他事件
+	<div id="div1">
+		<p id="p3">我是div</p>
+	</div>
+	<p id="demo"></p>
+	<script>
+		//math对象,返回0到11内的随机数
+		document.write(Math.floor(Math.random()*11));
+		//数组对象;创建数组有三种方法var myCars=new Array("Saab","Volvo","BMW");  var myCars=["Saab","Volvo","BMW"];下面的方法需要输入键名,我不推荐
+		var mycar=new Array();
+		mycar[0]="奔驰";
+		mycar[1]="300块";
+		mycar[2]="丰田";
+		//改变组员
+		mycar[0]="宝马"
+		var suoyin=mycar.indexOf("奔驰");//返回奔驰的索引值
+		//遍历输出,
+		for(x in mycar){
+			document.write(mycar[x]);
+		}
+		for(i=0;i<mycar.length;i++){
+			document.write(mycar[i]);
+		}
+		//Date日期对象
+		var shijian=new Date();
+		console.log(shijian);
+		//字符串对象的一些属性和方法 length属性返回字符串长度,indexOf()方法定位指定字符首次出现的位置,match()方法用来查找字符串中特定的字符并返回,replace()方法,用来替换字符;toUpperCase,toLowerCase()改变大小写,split转换为数组,
+		var txt = "hello world";
+		document.write(txt.length+"<br>");
+		//返回字符e的位置,从0开始的位置实际要加+1
+		document.write(txt.replace("world","replace后的字符")+"<br>") ;
+		document.write(txt.indexOf("e")+"<br>");
+		document.write(txt.match("world") + "<br>"+"我是\"李凯文\"");
+		//字符串可以转化成数组,重点
+		var str1="wo,shi,li,taogu"
+		var shuzu1= str1.split(",");
+		console.log(typeof(shuzu1));
+		console.log(str1);
+		//构造函数,new gouzao 后创建对象,对象拥有属性,其中changename方法也是属性,可以改变其他属性的值
+		function gouzao(fname,age,sex,high){
+			this.fname=name;
+			this.age=age;
+			this.sex=sex;
+			this.htgh=high;
+			this.changename=changename;
+			function changename(pxx){
+				this.fname=pxx;
+
+			}
+
+		}
+		//typeof 方法返回对象类型.number和object
+		var x = 123;              // x 是一个数字
+		var y = new Number(123);  // y 是一个对象,这里的new是什么意思呢?l?cx
+		var txt = typeof(x) + " " +y;
+		document.getElementById("demo").innerHTML=txt;
+		//输出x===y的结果,为false证明不全等
+		document.getElementById("demo").innerHTML=x===y;
+		//这里输出true证明值是相等的123
+		document.getElementById("demo").innerHTML=x==y;
+
+		//实例化对象
+		gouzao=new gouzao("li",18,"男",180);
+		//调用changgename方法
+		gouzao.changename("xiang")
+		//这时候changename被调用了,fname的值变成了传过去的参数
+		//遍历出gouzao对象中的属性,
+		for(x in gouzao){
+			document.write(gouzao[x]);
+		}
+		
+		//给html添加元素,节点操作
+		// createElement
+		// createTextNode
+		// appendChild添加到元素的尾部,insertBefore,child制定放在哪个元素前面
+		var pyuansu = document.createElement("p");
+		var wenben =document.createTextNode("我是添加的元素");
+		pyuansu.appendChild(wenben);
+		//document.getElementById("div1").appendChild(pyuansu);
+		var fuyuansu=document.getElementById("div1")
+		var child =document.getElementById("p3")
+		fuyuansu.insertBefore(pyuansu,child);
+		//移除元素,需要知道父元素
+		//parent.removeChild(child);
+// 		var child = document.getElementById("p1");
+//		 child.parentNode.removeChild(child);
+		//给anniu1添加监听事件click,
+		document.getElementById("anniu1").addEventListener("click",fangfa1);
+		function fangfa1(){
+			document.getElementById("p1").innerHTML=Date();
+		}
+
+		var anniu1=document.getElementById("anniu1");
+		var anniu2=document.getElementById("anniu2");
+		var p2=document.getElementById("p2");
+
+		anniu1.addEventListener("click",fangfa2);
+		function fangfa2(){
+			p2.innerHTML=Date();
+		}
+		//mouseover,mouseout事件监听
+		anniu2.addEventListener("mouseover",function(p){
+			console.log(p);
+		});//可以在加一个参数指定包泡还是捕获
+		anniu2.addEventListener("mouseout",apple2);
+		
+		function apple2(){
+			p2.innerHTML="鼠标移开<br>";
+		}
+		//window监听,
+		window.addEventListener("resize",function(){
+			p2.innerHTML=Math.random();
+		});
+		//mousemove事件,鼠标移动事件监听
+		p2.addEventListener("mousemove",function(){
+			p2.innerHTML=Math.random();
+		});
+
+		//移除指定元素的("事件",方法)
+		anniu2.addEventListener("click",function(){
+			anniu1.removeEventListener("click",fangfa1);
+		});
+		//兼容性演示
+		// <p> Internet Explorer 8 及更早IE版本不支持 addEventListener() 方法。</p>
+		// <p>该实例演示了所有浏览器兼容的解决方法。</p>
+		// <button id="myBtn">点我</button>
+		// <script>
+		// var x = document.getElementById("myBtn");
+		// if (x.addEventListener) {
+		//     x.addEventListener("click", myFunction);
+		// } else if (x.attachEvent) {
+		//     x.attachEvent("onclick", myFunction);
+		// }
+		// function myFunction() {
+		//     alert("Hello World!");
+		// }
+	</script>
+</body>
+</html>
