@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<style type="text/css">
+		.shu{
+			background-color: red;
+			height: 100px;
+			width: 100px;
+			float: left;
+		}
+		.hang{
+			width: 400px;
+			height:100px;
+
+		}
+		.kong{
+			width: 100px;
+			height: 100px;
+			float: left;
+		}
+	</style>
+	<div id="">我是test</div>
+	<div id="div1" style="border:solid;overflow: auto;">
+			<!-- <div style="width: 100px;height: 100px;background-color: red;float: left;"></div> -->
+	</div>
+
+	<script type="text/javascript">
+
+		//,创建一行方块
+		function chuanjianghang(){
+			var arr=['kong','kong','kong','kong',]
+			var suijishu=Math.floor(Math.random()*4);
+			arr[suijishu]='shu';
+			var hang=creatediv('hang');
+			for (var i = 0; i < 4; i++) {
+				hang.appendChild(creatediv(arr[i]));
+			}
+			if (document.getElementById('div1').firstChild==null) {
+				document.getElementById('div1').appendChild(hang);
+			}else{
+				document.getElementById('div1').insertBefore(hang,document.getElementById('div1').firstChild);
+			}	
+		}
+		//辅助初始化
+		function creatediv(canshu){
+			var zddiv=document.createElement('div');
+			zddiv.className=canshu;
+			return zddiv;
+		}
+		//辅助初始化
+		chuanjianghang();
+		chuanjianghang();
+		chuanjianghang();
+	</script>
+</body>
+</html>
